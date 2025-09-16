@@ -13,3 +13,12 @@
 - Ran Docker Compose and verified MySQL, Kafka, and Redis services.
 - Tested database connection via CLI and confirmed schema.
 - Removed Zookeeper to simplify setup (using KRaft mode).
+
+## Day 3: September 15, 2025
+- Restarted Docker services after system shutdown.
+- Verified MySQL schema in `food_delivery_db`.
+- Confirmed Kafka, Redis, and Zookeeper functionality.
+- Signed up for Azure and GCP accounts with free credits.
+- Created Azure resource group `FlavorFleet` and GCP project `flavorfleet-project`.
+- Updated README with cloud setup details.
+- Pushed changes to GitHub.

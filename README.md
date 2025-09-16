@@ -17,7 +17,26 @@ This project showcases skills in microservices, event-driven architecture (Kafka
 - **Tools**: IntelliJ, VS Code, Postman, GitHub
 
 ## Setup Instructions
-(To be added as project progresses)
+### Prerequisites
+- Docker Desktop
+- Git
+- Java 17, Node.js 18.x, Angular CLI
+- MySQL Workbench (optional)
+- Postman (for testing)
+
+### Local Setup
+1. Clone the repo: `git clone [https://github.com/AryanShriva/flavorfleet-food-delivery-app.git](https://github.com/AryanShriva/flavorfleet-food-delivery-app.git)`
+2. Navigate to `flavorfleet-food-delivery-app/`.
+3. Run `docker-compose up -d` to start MySQL, Kafka, Redis, and Zookeeper.
+4. Verify MySQL schema: `docker exec -it flavorfleet-mysql mysql -uroot -proot`, then `USE food_delivery_db; SHOW TABLES;`.
+5. Verify Kafka: `docker exec -it flavorfleet-kafka kafka-topics --create --topic test --bootstrap-server localhost:9093 --partitions 1 --replication-factor 1`.
+6. Verify Redis: `docker exec -it redis redis-cli ping`.
+
+### Cloud Setup
+- **GCP**:
+  - Signed up for GCP free account ($300 credit).
+  - Created project: `flavorfleet-project`.
+  - Free tier services: Cloud Run, Cloud SQL.
 
 ## Progress
 See `progress.md` for daily updates and milestones.
