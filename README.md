@@ -25,7 +25,7 @@ This project showcases skills in microservices, event-driven architecture (Kafka
 - Postman (for testing)
 
 ### Local Setup
-1. Clone the repo: `git clone [https://github.com/AryanShriva/flavorfleet-food-delivery-app.git](https://github.com/AryanShriva/flavorfleet-food-delivery-app.git)`
+1. Clone the repo: `git clone https://github.com/AryanShriva/flavorfleet-food-delivery-app.git`
 2. Navigate to `flavorfleet-food-delivery-app/`.
 3. Run `docker-compose up -d` to start MySQL, Kafka, Redis, and Zookeeper.
 4. Verify MySQL schema: `docker exec -it flavorfleet-mysql mysql -uroot -proot`, then `USE food_delivery_db; SHOW TABLES;`.

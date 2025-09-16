@@ -22,3 +22,11 @@
 - Created Azure resource group `FlavorFleet` and GCP project `flavorfleet-project`.
 - Updated README with cloud setup details.
 - Pushed changes to GitHub.
+
+## Day 4: September 16, 2025
+- Created `user-service` using Spring Initializr (Java 17, Spring Boot 3.x, Web, JPA, Security, MySQL, JJWT).
+- Configured `application.yml` for MySQL connection (port 3307, food_delivery_db).
+- Created `User` entity and `UserRepository` for the `users` table.
+- Dockerized `user-service` and added to `docker-compose.yml` (port 8081).
+- Tested service locally with Postman to confirm MySQL connection.
+- Pushed changes to GitHub.
