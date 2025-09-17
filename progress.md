@@ -30,3 +30,11 @@
 - Dockerized `user-service` and added to `docker-compose.yml` (port 8081).
 - Tested service locally with Postman to confirm MySQL connection.
 - Pushed changes to GitHub.
+
+## Day 5: September 18, 2025
+- Implemented registration and login APIs in `user-service`.
+- Added JWT generation and security filters with Spring Security.
+- Configured password encryption with BCrypt.
+- Updated Docker image for `user-service` and tested with Postman.
+- Verified registration, login, and JWT token generation.
+- Pushed changes to GitHub.

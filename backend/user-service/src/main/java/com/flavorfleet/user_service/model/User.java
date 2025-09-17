@@ -1,4 +1,4 @@
-package com.flavorfleet.user_service.model;
+package com.flavorfleet.userservice.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
