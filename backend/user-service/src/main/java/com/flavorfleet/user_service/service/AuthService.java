@@ -1,11 +1,11 @@
-package com.flavorfleet.userservice.service;
+package com.flavorfleet.user_service.service;
 
-import com.flavorfleet.userservice.dto.RegisterRequest;
-import com.flavorfleet.userservice.dto.LoginRequest;
-import com.flavorfleet.userservice.dto.LoginResponse;
-import com.flavorfleet.userservice.model.User;
-import com.flavorfleet.userservice.repository.UserRepository;
-import com.flavorfleet.userservice.security.JwtUtil;
+import com.flavorfleet.user_service.dto.RegisterRequest;
+import com.flavorfleet.user_service.dto.LoginRequest;
+import com.flavorfleet.user_service.dto.LoginResponse;
+import com.flavorfleet.user_service.model.User;
+import com.flavorfleet.user_service.repository.UserRepository;
+import com.flavorfleet.user_service.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

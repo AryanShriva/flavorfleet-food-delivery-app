@@ -1,4 +1,4 @@
-package com.flavorfleet.userservice.security;
+package com.flavorfleet.user_service.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

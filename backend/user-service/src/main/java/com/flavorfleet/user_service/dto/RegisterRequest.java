@@ -1,4 +1,4 @@
-package com.flavorfleet.userservice.dto;
+package com.flavorfleet.user_service.dto;
 
 import com.flavorfleet.user_service.model.User.Role;
 
