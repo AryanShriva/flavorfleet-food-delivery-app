@@ -1,8 +1,8 @@
 package com.flavorfleet.user_service.service;
 
-import com.flavorfleet.user_service.dto.RegisterRequest;
 import com.flavorfleet.user_service.dto.LoginRequest;
 import com.flavorfleet.user_service.dto.LoginResponse;
+import com.flavorfleet.user_service.dto.RegisterRequest;
 import com.flavorfleet.user_service.model.User;
 import com.flavorfleet.user_service.repository.UserRepository;
 import com.flavorfleet.user_service.security.JwtUtil;
@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
+
     @Autowired
     private UserRepository userRepository;
 
@@ -22,11 +23,6 @@ public class AuthService {
     private JwtUtil jwtUtil;
 
     public User register(RegisterRequest request) {
-        if (userRepository.findByUsername(request.getUsername()) != null ||
-                userRepository.findByEmail(request.getEmail()) != null) {
-            throw new RuntimeException("Username or email already exists");
-        }
-
         User user = new User();
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
@@ -37,10 +33,17 @@ public class AuthService {
 
     public LoginResponse login(LoginRequest request) {
         User user = userRepository.findByUsername(request.getUsername());
-        if (user == null || !passwordEncoder.matches(request.getPassword(), user.getPassword())) {
-            throw new RuntimeException("Invalid credentials");
+        if (user == null) {
+            throw new RuntimeException("User not found");
         }
-        String token = jwtUtil.generateToken(user.getUsername());
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new RuntimeException("Invalid password");
+        }
+        String token = jwtUtil.generateToken(user.getUsername(), user.getRole().name());
         return new LoginResponse(token);
+    }
+
+    public User getUserByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 }

@@ -15,9 +15,10 @@ public class JwtUtil {
     private final long expirationMs = 86400000; // 1 day in milliseconds
     private final SecretKey key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret));
 
-    public String generateToken(String username) {
+    public String generateToken(String username, String role) {
         return Jwts.builder()
                 .setSubject(username)
+                .claim("role", role)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expirationMs))
                 .signWith(key)
@@ -31,6 +32,15 @@ public class JwtUtil {
                 .parseSignedClaims(token)
                 .getPayload();
         return claims.getSubject();
+    }
+
+    public String getRoleFromToken(String token) {
+        Claims claims = Jwts.parser()
+                .verifyWith(key)
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
+        return claims.get("role", String.class);
     }
 
     public boolean validateToken(String token) {
