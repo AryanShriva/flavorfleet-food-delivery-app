@@ -38,3 +38,18 @@
 - Updated Docker image for `user-service` and tested with Postman.
 - Verified registration, login, and JWT token generation.
 - Pushed changes to GitHub.
+
+## Day 6: September 19, 2025
+- Updated `docker-compose.yml` to use persistent MySQL storage with `mysql_data` volume and set `user-service` port to 8080.
+- Updated `application.properties` to use environment variables for `SPRING_DATASOURCE_URL`, `SPRING_DATASOURCE_USERNAME`, `SPRING_DATASOURCE_PASSWORD`, and `SERVER_PORT`.
+- Rebuilt and tested `user-service` in Docker, confirming registration, login, and JWT APIs work via Postman.
+- Verified MySQL schema and data persistence.
+- Pushed changes to GitHub.
+
+## Day 7: September 20, 2025
+- Added role-based access control to `user-service` by including user role in JWT token.
+- Implemented `/users/me` endpoint to retrieve authenticated user’s profile.
+- Updated `SecurityConfig` to restrict endpoints based on roles (e.g., `CUSTOMER`, `ADMIN`).
+- Tested role-based access and profile retrieval with Postman for different roles.
+- Rebuilt and tested `user-service` in Docker.
+- Pushed changes to GitHub.
