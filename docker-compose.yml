@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   mysql:
     image: mysql:8.0
@@ -57,5 +58,23 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://flavorfleet-mysql:3306/food_delivery_db
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
+  restaurant-service:
+    image: flavorfleet-restaurant-service
+    container_name: flavorfleet-restaurant-service
+    restart: always
+    build:
+      context: ./backend/restaurant-service
+      dockerfile: Dockerfile
+    ports:
+      - "8082:8082"
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://flavorfleet-mysql:3306/food_delivery_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_REDIS_HOST: redis
+      SPRING_REDIS_PORT: 6379
 volumes:
   mysql_data:
