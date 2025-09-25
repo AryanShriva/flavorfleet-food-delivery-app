@@ -76,5 +76,24 @@ services:
       SPRING_DATASOURCE_PASSWORD: root
       SPRING_REDIS_HOST: redis
       SPRING_REDIS_PORT: 6379
+      SPRING_CLOUD_COMPATIBILITY_VERIFIER_ENABLED: false
+  order-service:
+    image: flavorfleet-order-service
+    container_name: flavorfleet-order-service
+    restart: always
+    build:
+      context: ./backend/order-service
+      dockerfile: Dockerfile
+    ports:
+      - "8083:8083"
+    depends_on:
+      - mysql
+      - kafka
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://flavorfleet-mysql:3306/food_delivery_db
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_CLOUD_COMPATIBILITY_VERIFIER_ENABLED: false
 volumes:
   mysql_data:
