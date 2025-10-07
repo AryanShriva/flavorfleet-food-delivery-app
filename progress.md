@@ -78,7 +78,7 @@
 ## Day 9: September 23, 2025
 - Fixed `pom.xml` for `restaurant-service` by removing redundant test dependencies (`testng`, `junit`, `junit-jupiter`, `spring-boot-test`).
 - Added `RestaurantServiceApplicationTests.java` for basic context load testing.
-- Fixed Spring Cloud compatibility issue by ensuring `spring.cloud.compatibility-verifier.enabled=false` in `application.properties` [or specify your fix, e.g., JVM argument, Spring Boot downgrade].
+- Fixed Spring Cloud compatibility issue [specify your fix, e.g., added `spring.cloud.compatibility-verifier.enabled=false` in `application.properties`].
 - Implemented CRUD APIs for restaurants and menu items in `restaurant-service`.
 - Added `RestaurantDTO` and `MenuItemDTO` for data transfer.
 - Created `RestaurantService` with Redis caching using `@Cacheable` for `getAllRestaurants`, `getRestaurantById`, and `getMenuItemsByRestaurant`.
@@ -86,8 +86,24 @@
 - Tested MySQL and Redis connectivity locally with Postman.
 - Pushed changes to GitHub.
 
-## Day 10: September 25, 2025
+## Day 10: October 7, 2025
 - Tested `restaurant-service` CRUD APIs in Docker with Postman.
 - Verified Redis caching with `@Cacheable` by checking reduced database queries and Redis logs.
 - Ran context-load test successfully (`RestaurantServiceApplicationTests.java`).
+- Pushed changes to GitHub.
+
+## Day 11: October 7, 2025
+- Initialized `order-service` with Spring Initializr (Java 17, Spring Boot 3.5.5, Web, JPA, MySQL, Kafka, OpenFeign).
+- Configured `application.properties` for MySQL, Kafka, and server port (8083).
+- Created `Order` and `OrderItem` entities and repositories.
+- Added `Dockerfile` for `order-service`.
+- Updated `docker-compose.yml` to include `order-service`.
+- Pushed changes to GitHub.
+
+## Day 12: October 7, 2025
+- Tested `order-service` locally and in Docker, verified MySQL connectivity.
+- Implemented Feign Client to call `restaurant-service` APIs for menu items.
+- Added `OrderDTO` and `OrderItemDTO` for data transfer.
+- Created `OrderService` and `OrderController` for order placement, with `OrderItem` validation via Feign Client.
+- Tested order creation with Postman, confirming Feign Client integration.
 - Pushed changes to GitHub.
